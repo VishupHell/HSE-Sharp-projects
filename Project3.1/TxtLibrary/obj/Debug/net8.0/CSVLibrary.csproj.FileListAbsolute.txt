@@ -1,0 +1,11 @@
+/Users/AndranikTorosan/Desktop/C#/Project3.1/CSVLibrary/bin/Debug/net8.0/CSVLibrary.deps.json
+/Users/AndranikTorosan/Desktop/C#/Project3.1/CSVLibrary/bin/Debug/net8.0/CSVLibrary.dll
+/Users/AndranikTorosan/Desktop/C#/Project3.1/CSVLibrary/bin/Debug/net8.0/CSVLibrary.pdb
+/Users/AndranikTorosan/Desktop/C#/Project3.1/CSVLibrary/obj/Debug/net8.0/CSVLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/Users/AndranikTorosan/Desktop/C#/Project3.1/CSVLibrary/obj/Debug/net8.0/CSVLibrary.AssemblyInfoInputs.cache
+/Users/AndranikTorosan/Desktop/C#/Project3.1/CSVLibrary/obj/Debug/net8.0/CSVLibrary.AssemblyInfo.cs
+/Users/AndranikTorosan/Desktop/C#/Project3.1/CSVLibrary/obj/Debug/net8.0/CSVLibrary.csproj.CoreCompileInputs.cache
+/Users/AndranikTorosan/Desktop/C#/Project3.1/CSVLibrary/obj/Debug/net8.0/CSVLibrary.dll
+/Users/AndranikTorosan/Desktop/C#/Project3.1/CSVLibrary/obj/Debug/net8.0/refint/CSVLibrary.dll
+/Users/AndranikTorosan/Desktop/C#/Project3.1/CSVLibrary/obj/Debug/net8.0/CSVLibrary.pdb
+/Users/AndranikTorosan/Desktop/C#/Project3.1/CSVLibrary/obj/Debug/net8.0/ref/CSVLibrary.dll

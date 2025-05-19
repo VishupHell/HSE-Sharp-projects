@@ -1,0 +1,11 @@
+/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/bin/Debug/net8.0/TxtLibrary.deps.json
+/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/bin/Debug/net8.0/TxtLibrary.dll
+/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/bin/Debug/net8.0/TxtLibrary.pdb
+/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/obj/Debug/net8.0/TxtLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/obj/Debug/net8.0/TxtLibrary.AssemblyInfoInputs.cache
+/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/obj/Debug/net8.0/TxtLibrary.AssemblyInfo.cs
+/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/obj/Debug/net8.0/TxtLibrary.csproj.CoreCompileInputs.cache
+/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/obj/Debug/net8.0/TxtLibrary.dll
+/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/obj/Debug/net8.0/refint/TxtLibrary.dll
+/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/obj/Debug/net8.0/TxtLibrary.pdb
+/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/obj/Debug/net8.0/ref/TxtLibrary.dll

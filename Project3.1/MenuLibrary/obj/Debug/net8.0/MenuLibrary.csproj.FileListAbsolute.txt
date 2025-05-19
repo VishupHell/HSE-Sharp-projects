@@ -1,0 +1,15 @@
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/bin/Debug/net8.0/MenuLibrary.deps.json
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/bin/Debug/net8.0/MenuLibrary.dll
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/bin/Debug/net8.0/MenuLibrary.pdb
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/obj/Debug/net8.0/MenuLibrary.csproj.AssemblyReference.cache
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/obj/Debug/net8.0/MenuLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/obj/Debug/net8.0/MenuLibrary.AssemblyInfoInputs.cache
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/obj/Debug/net8.0/MenuLibrary.AssemblyInfo.cs
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/obj/Debug/net8.0/MenuLibrary.csproj.CoreCompileInputs.cache
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/obj/Debug/net8.0/MenuLibr.7E56DCD1.Up2Date
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/obj/Debug/net8.0/MenuLibrary.dll
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/obj/Debug/net8.0/refint/MenuLibrary.dll
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/obj/Debug/net8.0/MenuLibrary.pdb
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/obj/Debug/net8.0/ref/MenuLibrary.dll
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/bin/Debug/net8.0/TxtLibrary.dll
+/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/bin/Debug/net8.0/TxtLibrary.pdb
