@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CZiNVCW7fqA=",
+  "dgSpecHash": "H8KecwLH0LI=",
   "success": true,
-  "projectFilePath": "/Users/AndranikTorosan/Desktop/C#/Project3.1/Project3.1/Project3.1.csproj",
+  "projectFilePath": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/Project3.1/Project3.1.csproj",
   "expectedPackageFiles": [
     "/Users/AndranikTorosan/.nuget/packages/harfbuzzsharp/7.3.0.3/harfbuzzsharp.7.3.0.3.nupkg.sha512",
     "/Users/AndranikTorosan/.nuget/packages/harfbuzzsharp.nativeassets.linux/7.3.0.3/harfbuzzsharp.nativeassets.linux.7.3.0.3.nupkg.sha512",

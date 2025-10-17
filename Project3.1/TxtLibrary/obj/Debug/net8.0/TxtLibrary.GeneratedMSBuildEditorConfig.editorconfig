@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CSVLibrary
-build_property.ProjectDir = /Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/
+build_property.ProjectDir = /Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/TxtLibrary/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

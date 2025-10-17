@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/AndranikTorosan/Desktop/C#/Project3.1/Project3.1/Project3.1.csproj": {}
+    "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/Project3.1/Project3.1.csproj": {}
   },
   "projects": {
-    "/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/MenuLibrary.csproj": {
+    "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/MenuLibrary/MenuLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/MenuLibrary.csproj",
+        "projectUniqueName": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/MenuLibrary/MenuLibrary.csproj",
         "projectName": "MenuLibrary",
-        "projectPath": "/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/MenuLibrary.csproj",
+        "projectPath": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/MenuLibrary/MenuLibrary.csproj",
         "packagesPath": "/Users/AndranikTorosan/.nuget/packages/",
-        "outputPath": "/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/obj/",
+        "outputPath": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/MenuLibrary/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/AndranikTorosan/.nuget/NuGet/NuGet.Config"
@@ -27,8 +27,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/TxtLibrary.csproj": {
-                "projectPath": "/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/TxtLibrary.csproj"
+              "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/TxtLibrary/TxtLibrary.csproj": {
+                "projectPath": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/TxtLibrary/TxtLibrary.csproj"
               }
             }
           }
@@ -85,14 +85,14 @@
         }
       }
     },
-    "/Users/AndranikTorosan/Desktop/C#/Project3.1/Project3.1/Project3.1.csproj": {
+    "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/Project3.1/Project3.1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/AndranikTorosan/Desktop/C#/Project3.1/Project3.1/Project3.1.csproj",
+        "projectUniqueName": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/Project3.1/Project3.1.csproj",
         "projectName": "Project3.1",
-        "projectPath": "/Users/AndranikTorosan/Desktop/C#/Project3.1/Project3.1/Project3.1.csproj",
+        "projectPath": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/Project3.1/Project3.1.csproj",
         "packagesPath": "/Users/AndranikTorosan/.nuget/packages/",
-        "outputPath": "/Users/AndranikTorosan/Desktop/C#/Project3.1/Project3.1/obj/",
+        "outputPath": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/Project3.1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/AndranikTorosan/.nuget/NuGet/NuGet.Config"
@@ -108,11 +108,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/MenuLibrary.csproj": {
-                "projectPath": "/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/MenuLibrary.csproj"
+              "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/MenuLibrary/MenuLibrary.csproj": {
+                "projectPath": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/MenuLibrary/MenuLibrary.csproj"
               },
-              "/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/TxtLibrary.csproj": {
-                "projectPath": "/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/TxtLibrary.csproj"
+              "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/TxtLibrary/TxtLibrary.csproj": {
+                "projectPath": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/TxtLibrary/TxtLibrary.csproj"
               }
             }
           }
@@ -157,14 +157,14 @@
         }
       }
     },
-    "/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/TxtLibrary.csproj": {
+    "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/TxtLibrary/TxtLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/TxtLibrary.csproj",
+        "projectUniqueName": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/TxtLibrary/TxtLibrary.csproj",
         "projectName": "TxtLibrary",
-        "projectPath": "/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/TxtLibrary.csproj",
+        "projectPath": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/TxtLibrary/TxtLibrary.csproj",
         "packagesPath": "/Users/AndranikTorosan/.nuget/packages/",
-        "outputPath": "/Users/AndranikTorosan/Desktop/C#/Project3.1/TxtLibrary/obj/",
+        "outputPath": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/TxtLibrary/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/AndranikTorosan/.nuget/NuGet/NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vjTy68i7KTc=",
+  "dgSpecHash": "vkij3jgW69c=",
   "success": true,
-  "projectFilePath": "/Users/AndranikTorosan/Desktop/C#/Project3.1/MenuLibrary/MenuLibrary.csproj",
+  "projectFilePath": "/Users/AndranikTorosan/Documents/GitHub/HSE-Sharp-projects/Project3.1/MenuLibrary/MenuLibrary.csproj",
   "expectedPackageFiles": [
     "/Users/AndranikTorosan/.nuget/packages/harfbuzzsharp/7.3.0.3/harfbuzzsharp.7.3.0.3.nupkg.sha512",
     "/Users/AndranikTorosan/.nuget/packages/harfbuzzsharp.nativeassets.linux/7.3.0.3/harfbuzzsharp.nativeassets.linux.7.3.0.3.nupkg.sha512",
