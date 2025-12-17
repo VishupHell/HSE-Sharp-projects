@@ -1,0 +1,47 @@
+﻿services:
+  KPO3:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: KPO3
+    ports:
+      - "5432:5432"
+    #volumes:
+      #- pgdata:/var/lib/postgresql/data
+  filestoringservice:
+    image: filestoringservice
+    build:
+      context: .
+      dockerfile: FileStoringService/Dockerfile
+    ports:
+      - "8080:8080" 
+    depends_on:
+      - KPO3
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+  fileanalysisservice:
+    image: fileanalysisservice
+    build:
+      context: .
+      dockerfile: FileAnalysisService/Dockerfile
+    ports:
+      - "8081:8080"
+    depends_on:
+      - KPO3
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  apigateway:
+    image: apigateway
+    build:
+      context: .
+      dockerfile: ApiGateway/Dockerfile
+    ports:
+      - "8082:8080"
+    depends_on:
+      - filestoringservice
+      - fileanalysisservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
