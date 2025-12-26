@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoZon Shop</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #f4f7f6; color: #333; }
+        .card { background: white; padding: 25px; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        h2 { margin-top: 0; color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; font-size: 1.4em; }
+        label { display: block; margin-top: 15px; font-weight: 600; color: #7f8c8d; }
+        input { width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box; border: 1px solid #bdc3c7; border-radius: 6px; }
+        button { background: #3498db; color: white; border: none; padding: 12px 20px; margin-top: 20px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.2s; }
+        button:hover { background: #2980b9; }
+        .btn-green { background: #27ae60; } .btn-green:hover { background: #219150; }
+        .btn-purple { background: #8e44ad; } .btn-purple:hover { background: #732d91; }
+        .btn-orange { background: #e67e22; } .btn-orange:hover { background: #d35400; }
+        .btn-gray { background: #7f8c8d; } .btn-gray:hover { background: #95a5a6; }
+
+        .row { display: flex; gap: 20px; }
+        .col { flex: 1; }
+
+        .balance { font-size: 2.5em; font-weight: bold; color: #27ae60; text-align: center; margin: 10px 0; }
+        #log { font-family: Consolas, monospace; background: #2c3e50; color: #2ecc71; padding: 15px; height: 150px; overflow-y: auto; border-radius: 8px; font-size: 0.85em; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { text-align: left; padding: 10px; border-bottom: 1px solid #eee; }
+        th { background: #ecf0f1; }
+        .status-created { color: #f39c12; font-weight: bold; }
+        .status-finished { color: #27ae60; font-weight: bold; }
+        .status-cancelled { color: #c0392b; font-weight: bold; }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center; color: #2c3e50;">MyShop KPO4</h1>
+
+<div class="row">
+    <!-- СЧЕТ -->
+    <div class="col">
+        <div class="card">
+            <h2>Мой Кошелек</h2>
+            <label>ID Пользователя (Guid):</label>
+            <input type="text" id="userId" value="3fa85f64-5717-4562-b3fc-2c963f66afa6">
+
+            <label>Имя (для создания):</label>
+            <input type="text" id="userName" value="Ivan Ivanov">
+
+            <div class="balance" id="balanceDisplay">--- ₽</div>
+            <button onclick="checkBalance()" class="btn-green">Обновить баланс</button>
+
+            <hr style="border:0; border-top:1px solid #eee; margin:20px 0;">
+
+            <label>Сумма операции:</label>
+            <input type="number" id="accountAmount" value="5000">
+
+            <div class="row" style="gap:10px; margin-top:0;">
+                <div class="col">
+                    <button onclick="createAccount()" class="btn-orange">Создать счет</button>
+                </div>
+                <div class="col">
+                    <button onclick="refillAccount()">Пополнить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card">
+            <h2>Новый Заказ</h2>
+            <label>Что покупаем:</label>
+            <input type="text" id="orderDesc" value="Сюрприз бокс">
+
+            <div style="margin-top:10px; font-size:0.9em; color:#888;">
+                * Цена выбирается случайно (100 - 5000 ₽)
+            </div>
+
+            <button onclick="createOrder()" class="btn-purple">Заказать</button>
+        </div>
+
+        <div class="card">
+            <h2>Поиск заказа</h2>
+            <label>ID Заказа:</label>
+            <input type="text" id="searchOrderId" placeholder="Введите ID...">
+            <button onclick="checkOrderStatus()" class="btn-gray">Найти статус</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="card">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>Мои Заказы</h2>
+        <button onclick="getUserOrders()" style="width:auto; margin:0; background:#95a5a6;">Обновить список</button>
+    </div>
+    <table>
+        <thead><tr><th>ID</th><th>Описание</th><th>Цена</th><th>Статус</th></tr></thead>
+        <tbody id="ordersTable"><tr><td colspan="4" style="text-align:center">Нет данных</td></tr></tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h2>Лог событий</h2>
+    <div id="log"></div>
+</div>
+
+<script>
+    const API_URL = "http://localhost:5005";
+
+    function log(msg) {
+        const t = new Date().toLocaleTimeString();
+        document.getElementById("log").insertAdjacentHTML('afterbegin', `<div>[${t}] ${msg}</div>`);
+    }
+
+
+    async function createAccount() {
+        const formData = new FormData();
+        formData.append("id", document.getElementById("userId").value);
+        formData.append("name", document.getElementById("userName").value);
+        formData.append("amount", document.getElementById("accountAmount").value);
+
+        try {
+            const res = await fetch(`${API_URL}/payments/Home`, { method: "POST", body: formData });
+            if (res.ok) { log("Счет создан!"); checkBalance(); }
+            else { const t = await res.text(); log(`Ошибка создания: ${t}`); }
+        } catch (e) { log("Ошибка сети: " + e); }
+    }
+
+    async function checkBalance() {
+        const id = document.getElementById("userId").value;
+        try {
+            const res = await fetch(`${API_URL}/payments/Home?id=${id}`);
+            if (res.ok) {
+                const data = await res.json();
+                document.getElementById("balanceDisplay").innerText = data.amount + " ₽";
+                log(`Баланс: ${data.amount} ₽`);
+            } else {
+                document.getElementById("balanceDisplay").innerText = "---";
+                log("Счет не найден");
+            }
+        } catch (e) { log("Ошибка сети"); }
+    }
+
+    async function refillAccount() {
+        const formData = new FormData();
+        formData.append("id", document.getElementById("userId").value);
+        formData.append("amount", document.getElementById("accountAmount").value);
+
+        try {
+            const res = await fetch(`${API_URL}/payments/Home/balance`, { method: "POST", body: formData });
+            if (res.ok) { log("Пополнено!"); checkBalance(); }
+            else { const t = await res.text(); log(`Ошибка пополнения: ${t}`); }
+        } catch (e) { log("Ошибка сети: " + e); }
+    }
+
+
+    async function createOrder() {
+        const formData = new FormData();
+        formData.append("userId", document.getElementById("userId").value);
+        formData.append("description", document.getElementById("orderDesc").value);
+
+        try {
+            const res = await fetch(`${API_URL}/orders/Home`, { method: "POST", body: formData });
+            if (res.ok) {
+                const data = await res.json();
+                log(`ЗАКАЗ СОЗДАН! ID: ${data.orderId}, Цена: ${data.price} ₽`);
+
+                document.getElementById("searchOrderId").value = data.orderId;
+
+                pollOrder(data.orderId);
+            } else {
+                const t = await res.text(); log(`Ошибка заказа: ${t}`);
+            }
+        } catch (e) { log("Ошибка: " + e); }
+    }
+
+    async function getUserOrders() {
+        const id = document.getElementById("userId").value;
+        try {
+            const res = await fetch(`${API_URL}/orders/Home?id=${id}`);
+            if (res.ok) {
+                const data = await res.json();
+                const tbody = document.getElementById("ordersTable");
+                tbody.innerHTML = "";
+
+                if(data.results && data.results.length > 0) {
+                    data.results.forEach(o => {
+                        const tr = document.createElement("tr");
+                        tr.innerHTML = `
+                                <td><small>${o.orderId}</small></td>
+                                <td>${o.description}</td>
+                                <td>${o.amount} ₽</td>
+                                <td>${getStatusHtml(o.status)}</td>
+                            `;
+                        tbody.appendChild(tr);
+                    });
+                    log(`Загружено ${data.results.length} заказов`);
+                } else {
+                    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center">Нет заказов</td></tr>';
+                }
+            } else { log("Не удалось получить список заказов"); }
+        } catch (e) { log("Ошибка: " + e); }
+    }
+
+    async function checkOrderStatus() {
+        const oid = document.getElementById("searchOrderId").value;
+        try {
+            const res = await fetch(`${API_URL}/orders/Home/order/status?OrderId=${oid}`);
+            if(res.ok) {
+                const data = await res.json();
+                log(`Статус заказа: ${getStatusText(data.status)}`);
+            } else log("Заказ не найден");
+        } catch(e) { log("Ошибка"); }
+    }
+
+
+    function getStatusText(s) {
+        if(s === 0) return "Created";
+        if(s === 1) return "Finished";
+        if(s === 2) return "Cancelled";
+        return s;
+    }
+
+    function getStatusHtml(s) {
+        if(s === 0) return '<span class="status-created">Created</span>';
+        if(s === 1) return '<span class="status-finished">Finished</span>';
+        if(s === 2) return '<span class="status-cancelled">Cancelled</span>';
+        return s;
+    }
+
+    async function pollOrder(orderId) {
+        let attempts = 0;
+        const interval = setInterval(async () => {
+            attempts++;
+            if (attempts > 15) { clearInterval(interval); return; }
+
+            try {
+                const res = await fetch(`${API_URL}/orders/Home/order/status?OrderId=${orderId}`);
+                if(res.ok) {
+                    const data = await res.json();
+                    if (data.status === 2 || data.status === 3) {
+                        clearInterval(interval);
+                        log(`Статус изменился на: ${getStatusText(data.status)}`);
+                        checkBalance();
+                        getUserOrders();
+                    }
+                }
+            } catch(e){}
+        }, 1000);
+    }
+</script>
+</body>
+</html>

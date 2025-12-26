@@ -5,6 +5,7 @@ namespace OrderService;
 public class OrderServiceDBContext : DbContext
 {
     public DbSet<Order> Orders { get; set; } = null!;
+    public DbSet<OutboxMessage> OutboxMessages { get; set; } = null!;
 
     public OrderServiceDBContext(DbContextOptions<OrderServiceDBContext> options)
         : base(options)
@@ -29,6 +30,12 @@ public class OrderServiceDBContext : DbContext
                 .IsRequired();
 
             entity.ToTable("orders");
+        });
+        
+        modelBuilder.Entity<OutboxMessage>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Id).ValueGeneratedNever();
         });
     }
 }

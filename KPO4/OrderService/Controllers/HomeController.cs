@@ -18,20 +18,46 @@ public class HomeController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult InputOrder([FromForm]Guid id, [FromForm]string description)
+    public async Task<IActionResult> InputOrder([FromForm] Guid userId, [FromForm] string description)
     {
-        var order = new Order(id, description);
-        var ans = _context.Orders.Find(id);
-        if (ans != null)
+        using var transaction = await _context.Database.BeginTransactionAsync();
+        try 
         {
-            return BadRequest($"Счёт с ID {id} уже есть.");
+            decimal amount = new Random().Next(100, 5000);
+
+            var order = new Order(userId, description, amount);
+        
+            _context.Orders.Add(order);
+
+            var eventData = new 
+            { 
+                OrderId = order.OrderId, 
+                UserId = userId, 
+                Amount = amount,
+                Description = description 
+            };
+
+            var outboxMessage = new OutboxMessage
+            {
+                Id = Guid.NewGuid(),
+                Type = "OrderCreated",
+                Payload = System.Text.Json.JsonSerializer.Serialize(eventData),
+                CreatedAt = DateTime.UtcNow
+            };
+            _context.OutboxMessages.Add(outboxMessage);
+
+            await _context.SaveChangesAsync();
+            await transaction.CommitAsync();
+
+            return Ok(new { OrderId = order.OrderId, Price = amount, Status = "Processing" });
         }
-        _context.Orders.Add(order);
-        _context.SaveChanges();
-        return Ok(new {
-            ThisOrderId = order.OrderId}
-            );
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync();
+            return BadRequest(ex.Message);
+        }
     }
+
     
     [HttpGet]
     public IActionResult GetUserOrders(Guid id)

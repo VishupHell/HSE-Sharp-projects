@@ -5,7 +5,8 @@ using PaymentsService.Models;
 public class PaymentServiceDBContext : DbContext
 {
     public DbSet<BankAccount> Accounts { get; set; } = null!;
-
+    public DbSet<InboxMessage> InboxMessages { get; set; } = null!;
+    public DbSet<OutboxMessage> OutboxMessages { get; set; } = null!;
     public PaymentServiceDBContext(DbContextOptions<PaymentServiceDBContext> options)
         : base(options)
     {
@@ -26,6 +27,16 @@ public class PaymentServiceDBContext : DbContext
                 .IsRequired();
 
             entity.ToTable("bank_accounts");
+        });
+        modelBuilder.Entity<InboxMessage>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Id).ValueGeneratedNever();
+        });
+        modelBuilder.Entity<OutboxMessage>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Id).ValueGeneratedNever();
         });
     }
 }

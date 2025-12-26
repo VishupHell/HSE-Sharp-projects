@@ -57,10 +57,8 @@ public class HomeController : ControllerBase
         {
             return BadRequest($"На счете {id} недостаточно средстве.");
         }
-        // Обновление баланса
         account.Amount += amount;
 
-        // Сохранение в БД
         await _context.SaveChangesAsync();
 
         return Ok(new { account.Id, account.Amount });

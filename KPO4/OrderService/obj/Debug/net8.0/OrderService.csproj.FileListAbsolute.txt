@@ -110,3 +110,4 @@
 /Users/AndranikTorosan/Desktop/GitHub/HSE-Sharp-projects/KPO4/OrderService/obj/Debug/net8.0/OrderService.pdb
 /Users/AndranikTorosan/Desktop/GitHub/HSE-Sharp-projects/KPO4/OrderService/obj/Debug/net8.0/OrderService.genruntimeconfig.cache
 /Users/AndranikTorosan/Desktop/GitHub/HSE-Sharp-projects/KPO4/OrderService/obj/Debug/net8.0/ref/OrderService.dll
+/Users/AndranikTorosan/Desktop/GitHub/HSE-Sharp-projects/KPO4/OrderService/bin/Debug/net8.0/RabbitMQ.Client.dll

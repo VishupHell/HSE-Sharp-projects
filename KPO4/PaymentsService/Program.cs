@@ -14,7 +14,8 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-
+        builder.Services.AddHostedService<PaymentsService.BackgroundServices.OrderConsumer>();
+        builder.Services.AddHostedService<OutboxPublisher>();
         var app = builder.Build();
         
         using (var scope = app.Services.CreateScope())

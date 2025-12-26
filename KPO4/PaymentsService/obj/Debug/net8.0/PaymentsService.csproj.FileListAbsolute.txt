@@ -110,3 +110,4 @@
 /Users/AndranikTorosan/Desktop/GitHub/HSE-Sharp-projects/KPO4/PaymentsService/obj/Debug/net8.0/PaymentsService.pdb
 /Users/AndranikTorosan/Desktop/GitHub/HSE-Sharp-projects/KPO4/PaymentsService/obj/Debug/net8.0/PaymentsService.genruntimeconfig.cache
 /Users/AndranikTorosan/Desktop/GitHub/HSE-Sharp-projects/KPO4/PaymentsService/obj/Debug/net8.0/ref/PaymentsService.dll
+/Users/AndranikTorosan/Desktop/GitHub/HSE-Sharp-projects/KPO4/PaymentsService/bin/Debug/net8.0/RabbitMQ.Client.dll

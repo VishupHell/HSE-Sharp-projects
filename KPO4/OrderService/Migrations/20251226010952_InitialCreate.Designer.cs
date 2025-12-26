@@ -12,7 +12,7 @@ using OrderService;
 namespace OrderService.Migrations
 {
     [DbContext(typeof(OrderServiceDBContext))]
-    [Migration("20251224174144_InitialCreate")]
+    [Migration("20251226010952_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -30,6 +30,9 @@ namespace OrderService.Migrations
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uuid");
 
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("numeric");
+
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uuid");
 
@@ -44,6 +47,30 @@ namespace OrderService.Migrations
                     b.HasKey("OrderId");
 
                     b.ToTable("orders", (string)null);
+                });
+
+            modelBuilder.Entity("OrderService.Models.OutboxMessage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Payload")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("ProcessedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OutboxMessages");
                 });
 #pragma warning restore 612, 618
         }
