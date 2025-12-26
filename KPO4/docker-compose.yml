@@ -1,0 +1,97 @@
+﻿version: '3.8'
+
+services:
+  KPO4:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: KPO4
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U admin -d KPO4" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - my-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: kpo_rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    healthcheck:
+      test: [ "CMD", "rabbitmq-diagnostics", "-q", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - my-network
+
+  paymentsservice:
+    image: paymentsservice
+    build:
+      context: .
+      dockerfile: PaymentsService/Dockerfile
+    depends_on:
+      KPO4:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Connection=Host=KPO4;Port=5432;Database=payments_db;Username=admin;Password=admin
+      - RabbitMQ__HostName=rabbitmq
+    container_name: paymentsservice
+    networks:
+      - my-network
+
+  orderservice:
+    image: orderservice
+    build:
+      context: .
+      dockerfile: OrderService/Dockerfile
+    depends_on:
+      KPO4:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Connection=Host=KPO4;Port=5432;Database=orders_db;Username=admin;Password=admin
+      - RabbitMQ__HostName=rabbitmq
+    container_name: orderservice
+    networks:
+      - my-network
+
+  apigateway:
+    image: apigateway
+    build:
+      context: .
+      dockerfile: APIGateway/Dockerfile
+    ports:
+      - "5005:8080"
+    depends_on:
+      - orderservice
+      - paymentsservice
+    networks:
+      - my-network
+  frontend:
+    build:
+      context: ./Frontend
+    ports:
+      - "3000:80"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
